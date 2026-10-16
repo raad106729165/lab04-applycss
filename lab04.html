@@ -2,88 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="description" content="Demonstrates some basic HTML content elements and CSS" />
-  <meta name="keywords" content="HTML5, tags" />
-  <meta name="author" content="A Lecturer"  />
-  <title>HTML Structure and Content Elements + CSS</title>
-  
+  <meta name="description" content="COS10026 Week 04 lab: a tour of basic HTML5 elements, styled with my first external CSS file" />
+  <meta name="keywords" content="HTML5, CSS, selectors, COS10026, web technology" />
+  <meta name="author" content="Alak Raad" />
+  <title>Lab 04: HTML5 Meets CSS</title>
+
   <link rel="stylesheet" href="styles/lab04.css" />
 </head>
-<!-- This is a comment. Indenting child elements makes the markup much more readable -->
+<!-- Indenting child elements keeps the markup readable (and keeps future me sane) -->
 <body>
    <header>
-     <h1>HTML 5 Structure and Content Elements with some CSS</h1>
+     <h1>HTML5 Structure and Content Elements, Now With Actual Style</h1>
      <nav>
-         <a href="#headings">Heading and Paragraphs</a> 
-         <a href="#sc">Special Characters</a> 
-         <a href="#lists">Lists</a> 
+         <a href="#intro">Intro</a>
+         <a href="#headings">Headings and Paragraphs</a>
+         <a href="#sc">Special Characters</a>
+         <a href="#lists">Lists</a>
          <a href="#tables">Tables</a>
          <a href="#images">Images</a>
          <a href="#hyperlinks">Hyperlinks</a>
       </nav>
       <hr />
    </header>
-   
-   <article>   
-   <h2>HTML5 Basic Elements</h2> 
+
+   <article>
+      <h2 id="intro">Introduction to Web Technology</h2>
+      <p>Every website you have ever scrolled through is built on three things: HTML for the structure, CSS for the looks, and JavaScript for the behaviour. Think of a house. HTML is the walls and the rooms, CSS is the paint and the furniture, and JavaScript is the electricity that makes the lights turn on.</p>
+      <p>The browser downloads these files from a web server (in my case, GitHub Pages) and puts the whole thing together on your screen in a fraction of a second.</p>
+
+      <h3>So What Is CSS?</h3>
+      <p>CSS stands for Cascading Style Sheets. It tells the browser how each element should look: colours, fonts, sizes, spacing and borders. The "cascading" part means that when two rules fight over the same element, the more specific one wins. My <code>h1</code> rule says purple, my <code>*</code> rule says dark slate grey, and the heading at the top of this page is still purple.</p>
+      <p>All the styling on this page lives in one external file, <code>styles/lab04.css</code>, linked from the <code>&lt;head&gt;</code>. One file, one link, and the whole page changes.</p>
+
+      <h2>HTML5 Basic Elements</h2>
       <aside>
-         <p>HTML page without CCS styling looks a bit boring!!</p>
+         <p>Before CSS, this page was plain black Times New Roman on a white background. It looked like a terms and conditions page nobody reads. (Hover over me and I disappear. I am that embarrassed.)</p>
       </aside>
-      <h2 id="headings">Headings and Paragraphs </h2>
-      <p>Headings and paragraphs are BLOCK elements</p>
+
+      <h2 id="headings">Headings and Paragraphs</h2>
+      <p>Headings and paragraphs are block elements. They take up the whole width of the page and refuse to share a line with anyone, like that one person who sits in the middle of the bus seat.</p>
       <h3 id="headings-level3">Headings</h3>
-      <p>There are 6 levels of heading. Headings are logical marked. Do not skip levels. If you want to change the size of a heading, don't change its level - change the CSS.</p>
+      <p>HTML gives us six levels of headings, from <code>h1</code> down to <code>h6</code>. Use them in order, like chapters in a book. If a heading looks too big, don't swap it for a smaller level. Change its size in the CSS instead. Headings describe structure, CSS handles the looks.</p>
       <h3>Paragraphs</h3>
-      <p>Paragraphs contain the body text of a web page. You cannot put another block element inside a paragraph.</p>
-      
+      <p>Paragraphs hold the actual reading material of a page, like what you are reading right now. One rule to remember: you can't put another block element (like a heading or a list) inside a paragraph. Paragraphs don't share their space.</p>
+
       <h2 id="sc">Special Characters</h2>
-      <p>While HTML supports many named special characters like <span class="special">&#174; (#174)</span>, XML only supports 5 namely: <span class="special">&quot; &apos; &amp; &lt;</span>  and <span class="special">&gt;</span>.  So to keep your HTML compliant you need to use numbers for all the others.</p>
-      
-         
-      
-      <!-- Comments can be useful to indicate various sections of markup-->
-      <!--Lists-->
-      <h2 id="list">Lists</h2>
-      <p>There are three types of lists: Unordered and Ordered lists, and Definition Lists</p>
+      <p>HTML knows lots of named special characters, like the registered sign <span class="special">&#174; (#174)</span>. XML is pickier and only accepts five by name: <span class="special">&quot; &apos; &amp; &lt;</span> and <span class="special">&gt;</span>. To stay on everyone's good side, use the number codes for everything else.</p>
+
+      <!-- Comments are handy for labelling sections of markup -->
+      <!-- Lists -->
+      <h2 id="lists">Lists</h2>
+      <p>HTML has three types of lists: unordered, ordered and definition lists. Here they are, using my week as the example.</p>
       <h3>Unordered List</h3>
-	  <ul>
-         <li>First bullet point</li>
-         <li>Second bullet point</li>
-         <li>Third bullet point</li>
+      <ul>
+         <li>Coffee</li>
+         <li>Lab exercise</li>
+         <li>More coffee</li>
       </ul>
       <h3>Ordered List</h3>
       <ol>
-         <li>First item</li>
-         <li>Second item</li>
-         <li>Third item</li>
+         <li>Read the lab instructions</li>
+         <li>Write the CSS</li>
+         <li>Refresh the browser 47 times</li>
       </ol>
-	  <h3>Definition List</h3>
-	  <dl>
-		<dt>First term (or name)</dt>
-			<dd>First description (or definition, or value)</dd>
-		<dt>Second term (or name)</dt>
-			<dd>second description (or definition, or value)</dd>
-      </dl> 
-      <p>Lists can also be nested inside each other</p>
+      <h3>Definition List</h3>
+      <dl>
+         <dt>Selector</dt>
+            <dd>The part of a CSS rule that picks which elements get styled.</dd>
+         <dt>Declaration</dt>
+            <dd>A property and value pair, like <code>color: purple;</code></dd>
+      </dl>
+      <p>Lists can also be nested inside each other. The sub-list below gets square bullets thanks to an <code>ol ul</code> contextual selector.</p>
       <ol>
-         <li>First item</li>
-         <li>Second item
+         <li>Plan the page</li>
+         <li>Style the page
             <ul>
-               <li>First sub-item</li>
-               <li>Second sub-item</li>
-               <li>Third sub-item</li>
+               <li>Pick the colours</li>
+               <li>Pick the fonts</li>
+               <li>Question every colour choice</li>
             </ul>
          </li>
-         <li>Third item</li>
-      </ol>		
+         <li>Validate the CSS</li>
+      </ol>
 
       <h2 id="tables">Tables</h2>
       <table>
-         <caption>Table of Monthly Savings</caption>
+         <caption>My Monthly Savings (a hopeful estimate)</caption>
          <thead>
             <tr>
-            <!-- the scope attribute assists non-visual user agents -->
-            <!-- rowspan and colspan allow multiple cells to be merged -->
+            <!-- the scope attribute helps screen readers understand the table -->
+            <!-- rowspan and colspan merge cells together -->
               <th rowspan="2" scope="col">Month</th>
               <th colspan="3" scope="col">Savings</th>
             </tr>
@@ -109,27 +117,27 @@
         </tbody>
         <tfoot>
          <tr>
-            <th colspan="3" scope="row"> Grand Total</th>
+            <th colspan="3" scope="row">Grand Total</th>
             <td>$180</td>
          </tr>
         </tfoot>
-		</table>
-      
-      <h2 id="hyperlinks">Hyperlinks</h2>
-      <p><a href="https://swinburne.instructure.com" title="This takes you to Canvas"> This is a link to an external site Canvas</a></p>
-      <p>This is a link to the <a href="#list">List Section </a> of this Web page</p>
-      <p>This is a link using <a href="mailto:someone@swin.edu.au"> email</a> rather than an http protocol</p> 
-	  
-      <h2 id="images">Images</h2>
-      <p>This thumbnail image is used as a hyperlink to a larger version of the image</p>
-      <a href="images/mycat.jpg">  <img src="images/mycat_small.jpg" alt="Photo of my cat" title="Filesize 222kb " /></a>
+      </table>
+      <p>February took a hit. Blame the coffee from the lists section.</p>
 
-      
+      <h2 id="hyperlinks">Hyperlinks</h2>
+      <p><a href="https://swinburne.instructure.com" title="Takes you to Canvas">Click here to visit Canvas</a>, where all the lab instructions live.</p>
+      <p>Lost already? Jump back up to the <a href="#lists">Lists section</a> of this page.</p>
+      <p>Links don't have to open web pages. This one opens your <a href="mailto:someone@swin.edu.au">email app</a> instead of using http.</p>
+
+      <h2 id="images">Images</h2>
+      <p>Meet the cat. Click the thumbnail to see the full-size version.</p>
+      <a href="images/mycat.jpg"><img src="images/mycat_small.jpg" alt="Photo of a ginger kitten sitting on grass" title="Full size: 222kb" /></a>
+
       <hr />
    </article>
-	<footer>
-		<p>Lab04 - Task 3</p>
-	</footer>
+   <footer>
+      <p>Lab 04: Apply CSS | Alak Raad | COS10026 Web Technology Project</p>
+   </footer>
 </body>
 
 </html>
